@@ -11,21 +11,15 @@ print('Part 1')
 #need to import the relevant python packages
 from numpy import*
 from matplotlib.pylab import*
+from plotter import plotter
 
 #can now define the function of interest dx/dt=F(x) which will be plotted
 def F(x):
     return 0.01- 0.4*x+(x**2)/(1+x**2)
-#can now define an array of x values over the interval (0 - 2.2), with 100 data points.
-x=linspace(0,2.2,100)
-#define an array to store the function F(x) values
-f=zeros(100)
-#can use a for loop to generate function values and assign them to the array f
-for i in range(100):
-    f[i]=F(x[i])
+plotter(F,0,2.2,100)
 #these array values can now be plotted to produce the graph dx/dt vs x
 figure(figsize=(8,6))
-plot(x,f)
-title('Graph of dx/dt as a function of x')
+title('Graph of f as a function of x')
 xlabel('x')
 ylabel('dx/dt')
 #can add gridlines to make identification of roots easier
